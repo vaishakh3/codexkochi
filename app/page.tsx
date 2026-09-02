@@ -1,344 +1,446 @@
+/* oxlint-disable next/no-img-element -- Local static event assets are already compressed; plain images keep the Vinext build server-rendered. */
 import {
-  ArrowDownRight,
-  ArrowRight,
+  ArrowDown,
   ArrowUpRight,
+  CalendarDays,
+  MapPin,
   MessageCircle,
+  Play,
 } from 'lucide-react';
+
+const pastEvents = [
+  {
+    date: '26 Apr 2026',
+    dateTime: '2026-04-26',
+    title: 'Inaugural Codex Community Hackathon',
+    place: 'Jain University, Kochi',
+    note: 'A full day of building, five finalist teams, and three winning ideas.',
+    image: '/events/april-hackathon.jpg',
+    href: 'https://www.instagram.com/p/DX4mUIvkl_a/',
+    accent: 'april',
+  },
+  {
+    date: '06—07 Jun 2026',
+    dateTime: '2026-06-06',
+    title: 'Codex Community Hackathon',
+    place: 'TinkerSpace, Kalamassery',
+    note: 'An overnight build with about 45 makers, from 8 PM to sunrise.',
+    image: '/events/june-overnight.webp',
+    href: 'https://www.instagram.com/p/DYwzSlGS3Pm/',
+    accent: 'overnight',
+  },
+  {
+    date: '27 Jun 2026',
+    dateTime: '2026-06-27',
+    title: 'Codex Community Meetup',
+    place: 'RECCAA Club, Thrikkakara',
+    note: 'Hands-on sessions, live demos, and generous conversations between builders.',
+    image: '/events/reccaa-meetup.jpg',
+    href: 'https://www.instagram.com/p/DZw6AhWy7X8/',
+    accent: 'reccaa',
+  },
+  {
+    date: '28 Jul 2026',
+    dateTime: '2026-07-28',
+    title: 'Codex Community Meetup',
+    place: 'Jain University, Kochi',
+    note: 'Project showcases, practical AI conversations, and another room full of momentum.',
+    image: '/events/july-meetup.jpg',
+    href: 'https://www.instagram.com/p/DbFcazOi0gM/',
+    accent: 'july',
+  },
+];
+
+const reels = [
+  {
+    eyebrow: 'Overnight hackathon',
+    title: 'One night. About 45 builders. Pure build energy.',
+    embed: 'https://www.instagram.com/reel/DZagKIeSN7l/embed/',
+    href: 'https://www.instagram.com/reel/DZagKIeSN7l/',
+  },
+  {
+    eyebrow: 'Codex Nightline',
+    title: 'A two-hour sprint on a moving Kochi Metro train.',
+    embed: 'https://www.instagram.com/reel/DcQSznFSiQ9/embed/',
+    href: 'https://www.instagram.com/reel/DcQSznFSiQ9/',
+  },
+];
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Codex Kochi home">
-          <span className="brand-mark" aria-hidden="true">
-            C<span>/</span>K
-          </span>
-          <span className="brand-name">Codex Kochi</span>
+          <img
+            className="brand-icon"
+            src="/codex-app-icon.png"
+            alt=""
+            width={42}
+            height={42}
+          />
+          <span>Codex Kochi</span>
         </a>
 
         <nav className="site-nav" aria-label="Primary navigation">
-          <a href="#story">Story</a>
-          <a href="#nightline">Nightline</a>
-          <a href="#community">Community</a>
+          <a href="#events">Events</a>
+          <a href="#watch">Watch</a>
+          <a href="#about">About</a>
         </nav>
 
         <a
           className="header-cta"
-          href="https://wa.me/917907649864"
+          href="https://www.instagram.com/codexkochi/"
           target="_blank"
           rel="noreferrer"
         >
-          Join the community
+          @codexkochi
           <ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.8} />
         </a>
       </header>
 
       <section className="hero" id="top">
-        <div className="hero-copy">
-          <p className="eyebrow">
-            <span className="pulse-dot" />
-            OpenAI Codex community · Kochi
-          </p>
-          <h1>
-            Kochi builds
-            <br />
-            <em>in motion.</em>
-          </h1>
+        <div className="codex-aura" aria-hidden="true">
+          <span className="aura aura-one" />
+          <span className="aura aura-two" />
+          <span className="aura aura-three" />
+          <span className="aura aura-four" />
+        </div>
+
+        <div className="hero-center">
+          <img
+            className="hero-icon"
+            src="/codex-app-icon.png"
+            alt="Codex"
+            width={124}
+            height={124}
+          />
+          <p className="eyebrow">OpenAI Codex ambassador-led community</p>
+          <h1>Codex Kochi</h1>
           <p className="hero-intro">
-            A community for the curious, the technical, and the people who
-            simply want to make something useful with AI.
+            Kerala&apos;s hands-on community for people who would rather build
+            the future than wait for it.
           </p>
           <div className="hero-actions">
-            <a className="button button-dark" href="#nightline">
-              Explore Nightline
-              <ArrowDownRight aria-hidden="true" size={18} />
+            <a className="button button-dark" href="#events">
+              Explore the event log
+              <ArrowDown aria-hidden="true" size={16} />
             </a>
-            <a className="text-link" href="#community">
-              Meet the community <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-        </div>
-
-        <div
-          className="hero-visual"
-          aria-label="Codex Nightline community at Kochi Metro"
-        >
-          <div className="photo-frame">
-            <img
-              src="/events/nightline-platform.webp"
-              alt="Codex Nightline builders gathered beside a Kochi Metro train"
-            />
-            <div className="photo-wash" />
-            <p className="photo-index">Field note / 001</p>
-            <p className="photo-caption">Vyttila · 18 July 2026 · 04:52</p>
-          </div>
-
-          <div className="event-ticket">
-            <p className="ticket-kicker">Our latest build</p>
-            <div>
-              <h2>Codex Nightline</h2>
-              <p>
-                The world&apos;s first AI build sprint aboard a moving metro.
-              </p>
-            </div>
-            <div className="ticket-stats">
-              <span>
-                <strong>100</strong>
-                builders
-              </span>
-              <span>
-                <strong>01</strong>
-                train
-              </span>
-              <span>
-                <strong>02h</strong>
-                to build
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div className="route-line" aria-hidden="true">
-          <span className="route-label route-label-start">Vyttila</span>
-          <span className="route-dot route-dot-one" />
-          <span className="route-dot route-dot-two" />
-          <span className="route-dot route-dot-three" />
-          <span className="route-label route-label-end">Thrippunithura</span>
-          <span className="route-train">→</span>
-        </div>
-      </section>
-
-      <section className="manifesto" id="story">
-        <div className="manifesto-top">
-          <p className="section-label light">01 / Why we gather</p>
-          <p className="manifesto-aside">
-            Community is a practice.
-            <br />
-            So is making.
-          </p>
-        </div>
-        <h2>
-          More making.
-          <br />
-          <em>Less watching.</em>
-        </h2>
-        <div className="manifesto-bottom">
-          <p>
-            Codex Kochi is a place to get out of the demo loop and into the
-            work: ideas with edges, prototypes with purpose, and people willing
-            to help one another ship.
-          </p>
-          <div className="principles">
-            <span>Show up curious</span>
-            <span>Build in public</span>
-            <span>Share the lift</span>
-          </div>
-        </div>
-        <div className="manifesto-orbit" aria-hidden="true">
-          <span />
-          <span />
-          <span />
-        </div>
-      </section>
-
-      <section className="nightline" id="nightline">
-        <div className="section-heading">
-          <p className="section-label">02 / Field note</p>
-          <div>
-            <h2>
-              We turned a Metro line
-              <br />
-              into a <em>deadline.</em>
-            </h2>
-            <p>
-              On 18 July 2026, one hundred solo builders boarded an after-hours
-              Kochi Metro train. They had one round trip—and two hours—to turn
-              an idea into something real.
-            </p>
             <a
-              className="text-link nightline-link"
+              className="button button-glass"
+              href="https://www.instagram.com/codexkochi/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Follow the community
+              <ArrowUpRight aria-hidden="true" size={16} />
+            </a>
+          </div>
+        </div>
+
+        <div className="hero-foot">
+          <span>Kochi, Kerala</span>
+          <span>Established March 2026</span>
+          <span>Scroll to explore&nbsp; ↓</span>
+        </div>
+      </section>
+
+      <section className="intro shell" id="about">
+        <div className="section-kicker">
+          <span>01</span>
+          <p>The community</p>
+        </div>
+        <div className="intro-copy">
+          <h2>
+            Built here.
+            <br />
+            Shared <span>everywhere.</span>
+          </h2>
+          <div>
+            <p>
+              Codex Kochi brings developers, designers, students, and curious
+              minds into the same room to learn by making. Some builds last a
+              day. Some last all night. One happened on a moving Metro train.
+            </p>
+            <p>
+              The format changes. The idea does not: show up curious, build
+              something real, and leave the room more capable than you entered.
+            </p>
+          </div>
+        </div>
+        <div className="signal-row" aria-label="Community at a glance">
+          <div>
+            <strong>05</strong>
+            <span>events in the log</span>
+          </div>
+          <div>
+            <strong>01</strong>
+            <span>moving build sprint</span>
+          </div>
+          <div>
+            <strong>∞</strong>
+            <span>reasons to start</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="events shell" id="events">
+        <div className="section-kicker">
+          <span>02</span>
+          <p>The event log</p>
+        </div>
+
+        <div className="section-title-row">
+          <h2>A community measured in things made.</h2>
+          <p>
+            From day-long hackathons to after-hours experiments, this is the
+            story so far.
+          </p>
+        </div>
+
+        <article className="nightline-feature">
+          <div className="nightline-image">
+            <img
+              src="/events/nightline-onboard.webp"
+              alt="Builders working on laptops aboard the Kochi Metro during Codex Nightline"
+            />
+            <div className="image-label">A world-first format</div>
+          </div>
+          <div className="nightline-copy">
+            <div className="event-meta">
+              <time dateTime="2026-07-18">18 Jul 2026</time>
+              <span>Past event</span>
+            </div>
+            <p className="event-number">05 / Codex Nightline</p>
+            <h3>The deadline moved. So did we.</h3>
+            <p>
+              One hundred solo builders boarded Kochi Metro after hours for a
+              two-hour AI sprint from Vyttila to Aluva, through Thrippunithura,
+              and back. Ideas were built, tested, and shared before the doors
+              opened again.
+            </p>
+            <div className="nightline-route" aria-label="Nightline route">
+              <span>Vyttila</span>
+              <i />
+              <span>Aluva</span>
+              <i />
+              <span>Thrippunithura</span>
+              <i />
+              <span>Vyttila</span>
+            </div>
+            <a
+              className="text-link"
               href="https://www.codexnightline.in/"
               target="_blank"
               rel="noreferrer"
             >
-              Relive the full Nightline story <ArrowUpRight size={15} />
+              Relive Codex Nightline
+              <ArrowUpRight aria-hidden="true" size={16} />
             </a>
           </div>
-        </div>
+        </article>
 
-        <div className="gallery-grid">
-          <figure className="gallery-main">
-            <img
-              src="/events/nightline-onboard.webp"
-              alt="Participants building with laptops inside the moving Kochi Metro train"
-            />
-            <figcaption>
-              <span>01</span>
-              Building between stations
-            </figcaption>
-          </figure>
-          <figure className="gallery-side gallery-side-top">
-            <img
-              src="/events/nightline-collaboration.webp"
-              alt="Two Codex Nightline builders collaborating on a laptop"
-            />
-            <figcaption>
-              <span>02</span>
-              Ideas in motion
-            </figcaption>
-          </figure>
-          <figure className="gallery-side gallery-side-bottom">
-            <img
-              src="/events/nightline-opening.webp"
-              alt="Vaishakh Suresh speaking at the Codex Nightline opening"
-            />
-            <figcaption>
-              <span>03</span>
-              Before the doors closed
-            </figcaption>
-          </figure>
-          <p className="gallery-note">
-            Not a simulation.
-            <br />
-            Not a keynote.
-            <br />
-            A room that moved.
-          </p>
-        </div>
-
-        <div className="ride-log">
-          <div className="ride-copy">
-            <p className="section-label">The loop / 23:00—01:00</p>
-            <h3>Four stops. One continuous build.</h3>
-          </div>
-          <ol className="route-stops">
-            <li>
-              <span className="stop-dot active" />
-              <p>Vyttila</p>
-              <small>Board + begin</small>
-            </li>
-            <li>
-              <span className="stop-dot" />
-              <p>Aluva</p>
-              <small>Build northbound</small>
-            </li>
-            <li>
-              <span className="stop-dot" />
-              <p>Thrippunithura</p>
-              <small>Turn + refine</small>
-            </li>
-            <li>
-              <span className="stop-dot active" />
-              <p>Vyttila</p>
-              <small>Deboard + demo</small>
-            </li>
-          </ol>
-        </div>
-
-        <div className="big-statement">
-          <p>
-            100 builders. <span>Zero teams.</span> One moving deadline.
-          </p>
-          <img
-            src="/events/nightline-detail.webp"
-            alt="Hands typing on a laptop during the Codex Nightline sprint"
-          />
+        <div className="event-grid">
+          {pastEvents.map((event, index) => (
+            <article
+              className={`event-card ${event.accent}`}
+              key={event.title + event.date}
+            >
+              <a
+                className="event-image"
+                href={event.href}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${event.title} on Instagram`}
+              >
+                <img
+                  src={event.image}
+                  alt={`${event.title} event visual`}
+                  loading="lazy"
+                />
+                <span className="event-index">0{index + 1}</span>
+              </a>
+              <div className="event-card-copy">
+                <div className="event-meta">
+                  <time dateTime={event.dateTime}>{event.date}</time>
+                  <span>Past event</span>
+                </div>
+                <h3>{event.title}</h3>
+                <p className="event-place">
+                  <MapPin aria-hidden="true" size={15} />
+                  {event.place}
+                </p>
+                <p>{event.note}</p>
+                <a
+                  className="text-link"
+                  href={event.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View event on Instagram
+                  <ArrowUpRight aria-hidden="true" size={15} />
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="community" id="community">
-        <div className="community-glow" aria-hidden="true" />
-        <p className="section-label">03 / The next stop</p>
-        <div className="community-grid">
-          <h2>
-            Your next useful idea
-            <br />
-            shouldn&apos;t stay in your notes.
-          </h2>
-          <div className="community-copy">
-            <p>
-              Come with a problem, a half-formed prototype, or just the instinct
-              that you want to build. Codex Kochi is for practitioners at every
-              level who learn best by making.
-            </p>
-            <a
-              className="button button-light"
-              href="https://wa.me/917907649864"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Join on WhatsApp
-              <MessageCircle aria-hidden="true" size={17} />
-            </a>
-          </div>
-        </div>
-
-        <div className="ways-to-show-up">
-          <article>
-            <span>01</span>
-            <h3>Working sessions</h3>
-            <p>
-              Bring the thing you are building. Leave with it meaningfully
-              further along.
-            </p>
-            <ArrowRight aria-hidden="true" size={20} />
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Practical learning</h3>
-            <p>Less theatre, more honest notes from people doing the work.</p>
-            <ArrowRight aria-hidden="true" size={20} />
-          </article>
-          <article>
+      <section className="watch" id="watch">
+        <div className="watch-glow" aria-hidden="true" />
+        <div className="shell watch-inner">
+          <div className="section-kicker section-kicker-light">
             <span>03</span>
-            <h3>Unusual rooms</h3>
+            <p>Watch it happen</p>
+          </div>
+          <div className="watch-heading">
+            <h2>The build is better in motion.</h2>
             <p>
-              From studios to moving trains—format is part of the experiment.
+              Highlights from two very different nights: one inside TinkerSpace,
+              one aboard Kochi Metro.
             </p>
-            <ArrowRight aria-hidden="true" size={20} />
-          </article>
+          </div>
+          <div className="reel-grid">
+            {reels.map((reel) => (
+              <article className="reel-card" key={reel.embed}>
+                <div className="reel-frame">
+                  <iframe
+                    src={reel.embed}
+                    title={`${reel.eyebrow} Instagram highlight`}
+                    loading="lazy"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  />
+                </div>
+                <div className="reel-copy">
+                  <p>{reel.eyebrow}</p>
+                  <h3>{reel.title}</h3>
+                  <a href={reel.href} target="_blank" rel="noreferrer">
+                    <Play aria-hidden="true" size={14} fill="currentColor" />
+                    Open on Instagram
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <footer>
-        <div className="footer-brand">
-          <span className="brand-mark footer-mark" aria-hidden="true">
-            C<span>/</span>K
-          </span>
-          <p>
-            Codex Kochi
-            <small>Build what moves the city.</small>
-          </p>
+      <section className="next-build shell">
+        <div className="section-kicker">
+          <span>04</span>
+          <p>Next build</p>
         </div>
-        <div className="footer-meta">
-          <p>
-            Community-led by Vaishakh Suresh
-            <br />
-            OpenAI Codex Ambassador · Kochi, Kerala
-          </p>
-          <div className="social-links">
-            <a
-              href="https://www.linkedin.com/in/vaishakh3/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Vaishakh Suresh on LinkedIn"
-            >
-              <span aria-hidden="true">in</span>
-            </a>
-            <a
-              href="https://www.instagram.com/soulcastor/"
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Vaishakh Suresh on Instagram"
-            >
-              <span aria-hidden="true">ig</span>
-            </a>
+        <div className="next-card">
+          <div className="next-visual">
+            <img
+              src="/events/calicut-hackathon.jpg"
+              alt="Codex Community Hackathon Calicut poster"
+              loading="lazy"
+            />
+          </div>
+          <div className="next-copy">
+            <p className="status-pill">
+              <span /> Upcoming
+            </p>
+            <p className="next-eyebrow">Next stop / Calicut</p>
+            <h2>An all-nighter for 50 solo builders.</h2>
+            <p>
+              Fourteen hours to go from blank page to working prototype, with
+              API credits, ChatGPT Pro, mentors, food, and a room built for
+              focus.
+            </p>
+            <div className="next-facts">
+              <span>
+                <CalendarDays aria-hidden="true" size={17} />
+                19 Sep, 7:30 PM — 20 Sep, 9:30 AM
+              </span>
+              <span>
+                <MapPin aria-hidden="true" size={17} />
+                TinkerSpace, Calicut
+              </span>
+            </div>
+            <div className="next-actions">
+              <a
+                className="button button-dark"
+                href="https://luma.com/l5tpblw3"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View event details
+                <ArrowUpRight aria-hidden="true" size={16} />
+              </a>
+              <a
+                className="text-link"
+                href="https://www.instagram.com/p/DcjY4hvyB_d/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram post
+                <ArrowUpRight aria-hidden="true" size={15} />
+              </a>
+            </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          <span>© 2026 Codex Kochi</span>
-          <a href="#top">Back to top ↑</a>
+      </section>
+
+      <section className="join" id="join">
+        <div className="join-aura" aria-hidden="true" />
+        <img
+          className="join-icon"
+          src="/codex-app-icon.png"
+          alt=""
+          width={92}
+          height={92}
+        />
+        <p className="eyebrow">There is room for what you are building</p>
+        <h2>Bring the unfinished thing.</h2>
+        <p>
+          Meet people who will ask better questions, share what they know, and
+          help you get the idea out of your notes.
+        </p>
+        <div className="hero-actions">
+          <a
+            className="button button-dark"
+            href="https://wa.me/917907649864"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Join the WhatsApp community
+            <MessageCircle aria-hidden="true" size={16} />
+          </a>
+          <a
+            className="button button-glass"
+            href="https://www.instagram.com/codexkochi/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Follow on Instagram
+            <ArrowUpRight aria-hidden="true" size={16} />
+          </a>
         </div>
+      </section>
+
+      <footer className="site-footer shell">
+        <div className="footer-brand">
+          <img src="/codex-app-icon.png" alt="" width={48} height={48} />
+          <div>
+            <strong>Codex Kochi</strong>
+            <span>OpenAI Codex community · Kochi, Kerala</span>
+          </div>
+        </div>
+        <div className="footer-links">
+          <a href="#events">Event log</a>
+          <a href="#watch">Highlights</a>
+          <a
+            href="https://www.instagram.com/codexkochi/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Instagram <ArrowUpRight aria-hidden="true" size={13} />
+          </a>
+        </div>
+        <p className="footer-note">
+          Community-led by Vaishakh Suresh · OpenAI Codex Ambassador
+        </p>
       </footer>
     </main>
   );

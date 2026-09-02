@@ -1,34 +1,27 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://codexkochi.in'),
-  title: 'Codex Kochi — Build what moves the city',
+  title: 'Codex Kochi — Built here. Shared everywhere.',
   description:
-    'The OpenAI Codex community in Kochi. Local builders, ambitious experiments, and stories like Codex Nightline.',
+    'Kochi’s ambassador-led OpenAI Codex community: hackathons, hands-on meetups, and ambitious experiments built together.',
+  icons: {
+    icon: '/codex-app-icon.png',
+    apple: '/codex-app-icon.png',
+  },
   openGraph: {
-    title: 'Codex Kochi — Kochi builds in motion',
+    title: 'Codex Kochi — Built here. Shared everywhere.',
     description:
-      'Local builders, ambitious experiments, and stories like Codex Nightline.',
+      'Hackathons, hands-on meetups, and ambitious experiments from Kerala’s builder community.',
     url: 'https://codexkochi.in',
     siteName: 'Codex Kochi',
     images: [
       {
         url: '/og.png',
-        width: 1733,
-        height: 907,
-        alt: 'Codex Kochi — Kochi builds in motion',
+        width: 1732,
+        height: 908,
+        alt: 'Codex Kochi — Built here. Shared everywhere.',
       },
     ],
     locale: 'en_IN',
@@ -36,9 +29,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Codex Kochi — Kochi builds in motion',
+    title: 'Codex Kochi — Built here. Shared everywhere.',
     description:
-      'Local builders, ambitious experiments, and stories like Codex Nightline.',
+      'Hackathons, hands-on meetups, and ambitious experiments from Kerala’s builder community.',
     images: ['/og.png'],
   },
 };
@@ -50,11 +43,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

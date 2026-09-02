@@ -1,4 +1,4 @@
-/* oxlint-disable next/no-img-element -- Local static event assets are already compressed; plain images keep the Vinext build server-rendered. */
+import Image from 'next/image';
 import {
   ArrowDown,
   ArrowUpRight,
@@ -71,12 +71,13 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="brand" href="#top" aria-label="Codex Kochi home">
-          <img
+          <Image
             className="brand-icon"
             src="/codex-app-icon.png"
             alt=""
             width={42}
             height={42}
+            loading="eager"
           />
           <span>Codex Kochi</span>
         </a>
@@ -107,12 +108,13 @@ export default function Home() {
         </div>
 
         <div className="hero-center">
-          <img
+          <Image
             className="hero-icon"
             src="/codex-app-icon.png"
             alt="Codex"
             width={124}
             height={124}
+            preload
           />
           <p className="eyebrow">OpenAI Codex ambassador-led community</p>
           <h1>Codex Kochi</h1>
@@ -199,9 +201,11 @@ export default function Home() {
 
         <article className="nightline-feature">
           <div className="nightline-image">
-            <img
+            <Image
               src="/events/nightline-onboard.webp"
               alt="Builders working on laptops aboard the Kochi Metro during Codex Nightline"
+              fill
+              sizes="(max-width: 900px) 100vw, 58vw"
             />
             <div className="image-label">A world-first format</div>
           </div>
@@ -252,10 +256,11 @@ export default function Home() {
                 rel="noreferrer"
                 aria-label={`View ${event.title} on Instagram`}
               >
-                <img
+                <Image
                   src={event.image}
                   alt={`${event.title} event visual`}
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1180px) 38vw, 25vw"
                 />
                 <span className="event-index">0{index + 1}</span>
               </a>
@@ -331,10 +336,11 @@ export default function Home() {
         </div>
         <div className="next-card">
           <div className="next-visual">
-            <img
+            <Image
               src="/events/calicut-hackathon.jpg"
               alt="Codex Community Hackathon Calicut poster"
-              loading="lazy"
+              fill
+              sizes="(max-width: 900px) 100vw, 44vw"
             />
           </div>
           <div className="next-copy">
@@ -384,7 +390,7 @@ export default function Home() {
 
       <section className="join" id="join">
         <div className="join-aura" aria-hidden="true" />
-        <img
+        <Image
           className="join-icon"
           src="/codex-app-icon.png"
           alt=""
@@ -421,7 +427,7 @@ export default function Home() {
 
       <footer className="site-footer shell">
         <div className="footer-brand">
-          <img src="/codex-app-icon.png" alt="" width={48} height={48} />
+          <Image src="/codex-app-icon.png" alt="" width={48} height={48} />
           <div>
             <strong>Codex Kochi</strong>
             <span>OpenAI Codex community · Kochi, Kerala</span>

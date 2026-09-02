@@ -173,7 +173,7 @@ main {
 .codex-aura {
   position: absolute;
   z-index: -2;
-  inset: 5% -4% 0;
+  inset: 0 -4%;
   background:
     radial-gradient(
       ellipse 48% 64% at 8% 38%,

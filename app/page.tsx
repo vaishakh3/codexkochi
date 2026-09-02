@@ -85,12 +85,7 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
-        <div className="codex-aura" aria-hidden="true">
-          <span className="aura aura-one" />
-          <span className="aura aura-two" />
-          <span className="aura aura-three" />
-          <span className="aura aura-four" />
-        </div>
+        <div className="codex-aura" aria-hidden="true" />
 
         <div className="hero-center">
           <Image
@@ -276,7 +271,6 @@ export default function Home() {
       </section>
 
       <section className="watch" id="watch">
-        <div className="watch-glow" aria-hidden="true" />
         <div className="shell watch-inner">
           <div className="section-kicker section-kicker-light">
             <span>03</span>
@@ -358,7 +352,6 @@ export default function Home() {
       </section>
 
       <section className="join" id="join">
-        <div className="join-aura" aria-hidden="true" />
         <Image
           className="join-icon"
           src="/codex-app-icon.png"

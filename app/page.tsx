@@ -5,8 +5,8 @@ import {
   CalendarDays,
   MapPin,
   MessageCircle,
-  Play,
 } from 'lucide-react';
+import { ReelShowcase } from '@/components/reel-showcase';
 
 const pastEvents = [
   {
@@ -48,21 +48,6 @@ const pastEvents = [
     image: '/events/july-meetup.jpg',
     href: 'https://www.instagram.com/p/DbFcazOi0gM/',
     accent: 'july',
-  },
-];
-
-const reels = [
-  {
-    eyebrow: 'Overnight hackathon',
-    title: 'One night. About 45 builders. Pure build energy.',
-    embed: 'https://www.instagram.com/reel/DZagKIeSN7l/embed/',
-    href: 'https://www.instagram.com/reel/DZagKIeSN7l/',
-  },
-  {
-    eyebrow: 'Codex Nightline',
-    title: 'A two-hour sprint on a moving Kochi Metro train.',
-    embed: 'https://www.instagram.com/reel/DcQSznFSiQ9/embed/',
-    href: 'https://www.instagram.com/reel/DcQSznFSiQ9/',
   },
 ];
 
@@ -298,34 +283,18 @@ export default function Home() {
             <p>Watch it happen</p>
           </div>
           <div className="watch-heading">
-            <h2>The build is better in motion.</h2>
-            <p>
-              Highlights from two very different nights: one inside TinkerSpace,
-              one aboard Kochi Metro.
-            </p>
+            <h2>Two nights. No spectators.</h2>
+            <div className="watch-deck">
+              <p>
+                One room stayed awake until sunrise. Another moved across the
+                city. Both were full of people making something real.
+              </p>
+              <span>
+                <i /> 02 highlight films
+              </span>
+            </div>
           </div>
-          <div className="reel-grid">
-            {reels.map((reel) => (
-              <article className="reel-card" key={reel.embed}>
-                <div className="reel-frame">
-                  <iframe
-                    src={reel.embed}
-                    title={`${reel.eyebrow} Instagram highlight`}
-                    loading="lazy"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  />
-                </div>
-                <div className="reel-copy">
-                  <p>{reel.eyebrow}</p>
-                  <h3>{reel.title}</h3>
-                  <a href={reel.href} target="_blank" rel="noreferrer">
-                    <Play aria-hidden="true" size={14} fill="currentColor" />
-                    Open on Instagram
-                  </a>
-                </div>
-              </article>
-            ))}
-          </div>
+          <ReelShowcase />
         </div>
       </section>
 

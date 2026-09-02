@@ -69,6 +69,7 @@ export function ReelShowcase() {
         <button
           className="film-card film-card-primary"
           type="button"
+          style={{ position: 'relative' }}
           onClick={() => setActiveId('nightline')}
           aria-label="Watch the Codex Nightline highlight film"
         >
@@ -100,6 +101,7 @@ export function ReelShowcase() {
         <button
           className="film-card film-card-secondary"
           type="button"
+          style={{ position: 'relative' }}
           onClick={() => setActiveId('overnight')}
           aria-label="Watch the overnight hackathon highlight film"
         >
